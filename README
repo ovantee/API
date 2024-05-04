@@ -1,0 +1,30 @@
+# Setup
+
+## Install
+
+```shell
+$ python3 -m venv venv
+$ . venv/bin/activate
+(venv) $ pip install -r requirements.txt
+```
+
+## Env
+Update file env in app/config/local.env
+```
+DB_URI=postgresql+asyncpg://postgres:password@localhost:5432
+ECHO_SQL=False
+```
+
+# Run
+
+```shell
+(venv) $ APP_CONFIG_FILE=local uvicorn app.main:app --reload --reload-dir app
+INFO:     Will watch for changes in these directories: ['/Users/rhoboro/go/src/github.com/rhoboro/async-fastapi-sqlalchemy/app']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [49448] using WatchFiles
+INFO:     Started server process [49450]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
+
+You can now access [localhost:8000/docs](http://localhost:8000/docs) to see the API documentation.
